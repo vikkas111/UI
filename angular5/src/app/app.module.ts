@@ -8,6 +8,10 @@ import {
   AuthServiceConfig,
   GoogleLoginProvider,
 } from "angular5-social-login";
+import { HttpModule } from '@angular/http';
+import { TestComponent } from './test/test.component'
+
+
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -22,20 +26,25 @@ export function getAuthServiceConfigs() {
 }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestComponent
+    
   ],
   imports:[
     BrowserModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpModule
+    
   ],
   providers: [
   
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
+      
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,TestComponent]
 })
 export class AppModule { }
