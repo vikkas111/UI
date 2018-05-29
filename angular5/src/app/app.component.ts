@@ -6,7 +6,7 @@ import {
   
     GoogleLoginProvider
 } from 'angular5-social-login';
-
+import { Router } from '@angular/router'
 import { Http, Response } from "@angular/http";
 import 'rxjs/add/operator/map'
 
@@ -16,22 +16,24 @@ import 'rxjs/add/operator/map'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public p:String="";
- detail:String = 'User Not Found';
+//   public p:String="";
+//  detail:String = 'User Not Found';
     constructor( private socialAuthService: AuthService,private http: Http ) {}
-    ngOnInit() {
+    
      
-      this.http
-        .get("/assets/test.json")
-        .map(data => data.json())
-        .subscribe(data => {
-  this.p=data.Candidate[0].email;
-          console.log(data.Candidate[0].email);
-        });
-    }
+  //     this.http
+  //       .get("/assets/test.json")
+  //       .map(data => data.json())
+  //       .subscribe(data => {
+  // this.p=data.Candidate[0].email;
+  //         console.log(data.Candidate[0].email);
+  //       });
+   
   
   
       
+    
+
     
   
     
@@ -48,12 +50,20 @@ export class AppComponent {
 
           
           console.log(socialPlatform+" sign in data : " , userData);
+          this.http
+        .get("/assets/test.json")
+        .map(data => data.json())
+        .subscribe(data => {
+        // this.p=data.Candidate[0].email;
+          console.log(data.Candidate[0].responseError[0].errorCode);
+          alert("error code is:"  + data.Candidate[0].responseError[0].errorCode + "  error is:" + data.Candidate[0].responseError[0].errorMessage);
+        });
           // Now sign-in with userData
-          if(this.p!=userData.email)
+          // if(this.p!=userData.email)
           
-              alert("User not present in the database");
-              else
-              alert("User present in the database");
+          //     alert("User not present in the database");
+          //     else
+          //     alert("User present in the database");
         }
       );
     }
