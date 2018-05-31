@@ -3,15 +3,10 @@
     {
       "responseError": [
         {
-          "errorCode": "50000",
-          "errorMessage": "Valid eligibility response not found for the member"
+          "errorCode": "401",
+          "errorMessage": "Unauthorised user Contact administrator"
         }
-      ],
-      "email": "xxxxxxxx@gmail.com",
-      "UUID": {
-        "id": "0018335447",
-        "Created Date": "05/24/2018"
-      }
+      ]
     }
   ]
 }

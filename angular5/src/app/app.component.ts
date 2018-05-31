@@ -16,7 +16,10 @@ import 'rxjs/add/operator/map'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-//   public p:String="";
+  public p:String="";
+  public errcode:String ;
+  public errmsg:string;
+
 //  detail:String = 'User Not Found';
     constructor( private socialAuthService: AuthService,private http: Http ) {}
     
@@ -54,14 +57,23 @@ export class AppComponent {
         .get("/assets/test.json")
         .map(data => data.json())
         .subscribe(data => {
-        // this.p=data.Candidate[0].email;
-          console.log(data.Candidate[0].responseError[0].errorCode);
-          alert("error code is:"  + data.Candidate[0].responseError[0].errorCode + "  error is:" + data.Candidate[0].responseError[0].errorMessage);
-        });
+         this.p=data.Candidate[0].email;
+         //if(this.p!=userData.email)
+
+         if(data.Candidate[0].email!=userData.email)
+         console.log(data.Candidate[0].email);
+
+         // console.log(data.Candidate[0].responseError[0].errorCode+"Not Found   ",data.Candidate[0].responseError[0].errorMessage);
+          //console.log(data.Candidate[0].responseError[0].errorCode);
+          if(data.Candidate[0].responseError[0].errorCode==401){
+
+          this.errcode=data.Candidate[0].responseError[0].errorCode;
+          this.errmsg=data.Candidate[0].responseError[0].errorMessage;
+        }
+      else{
+    console.log("user exists")}});
           // Now sign-in with userData
-          // if(this.p!=userData.email)
           
-          //     alert("User not present in the database");
           //     else
           //     alert("User present in the database");
         }
