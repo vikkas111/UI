@@ -1,50 +1,65 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 import {
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider,
-} from "angular5-social-login";
-import { HttpModule } from '@angular/http';
-import { TestComponent } from './test/test.component'
-
-
+  FacebookLoginProvider,
+} from 'angular5-social-login';
 
 export function getAuthServiceConfigs() {
-  let config = new AuthServiceConfig(
-      [
-        {
-          id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider("644830445854-uf6bge3vs8v77dbp04r5dprth3jo9qpf.apps.googleusercontent.com")
-        },
-      ]
-  )
+  const config = new AuthServiceConfig(
+    [{
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider('190506228435014')
+    },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('832976957531-ufljq94h91ej37l3an2ouprfm4pmcmt7.apps.googleusercontent.com')
+      },
+    ]
+  );
   return config;
 }
+
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
-    
-  ],
-  imports:[
+    HomeComponent,
+    LoginComponent,
+    SignupComponent
+],
+  imports: [
     BrowserModule,
-    AppRoutingModule,
     SocialLoginModule,
-    HttpModule
-    
+    HttpClientModule,
+    HttpModule,
+    RouterModule.forRoot(
+      appRoutes)
   ],
   providers: [
-  
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
-      
     }
   ],
-  bootstrap: [AppComponent,TestComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+
+h3{
+    text-align: center;
+}
+
+
+.center{
+    margin-top: 150px;
+    margin-left: 550px;   
+}
+
+#submit{
+    margin-top: 10px;
+}
+
+.border{
+
+    border-left: 2px solid gray;
+    height: 200px;
+    margin-left: 375px; 
+
+}
+
+#btn-1{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
