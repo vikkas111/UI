@@ -1,0 +1,602 @@
+<head>
+		<title>Bootstrap Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<h1><a class="navbar-brand" href="">Egiants</a></h1>
+<div class="collapse navbar-collapse">
+<ul class="navbar-nav mr-auto">
+</ul>
+</div>
+</nav>
+</div>
+
+<div class="container">
+	<ul class="nav nav-pills">
+	<li [ngClass]="{'active': id === 1 }" id=1><a data-toggle="" >Personal Details</a></li>
+	<li [ngClass]="{'active': id === 2 }" id =2><a data-toggle="" >Education Details</a></li>
+	<li [ngClass]="{'active': id === 3 }" id=3><a data-toggle="" >Immigration Details</a></li>
+	<li [ngClass]="{'active': id === 4 }" id=4><a data-toggle="">Work Experience</a></li>
+	</ul>
+	
+	<div class="tab-content">
+			<div id="personal" class="tab-pane fade in active">
+					<form [formGroup]="formVar" (ngSubmit)="onSubmit()">
+					<h3 align="left" class="col-sm-offset-0" style="color:darkslateblue"> Personal Information</h3>
+					
+					<div class="container" id="personalInfo">
+					<div class="col-lg-12 well">
+					<div class="row">
+						<form [formGroup]="formVar" (ngSubmit)="onSubmit()">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-3 form-group">
+										<label>Name as in Passport</label>
+										<input type="text" placeholder="First Name" class="form-control" formControlName="firstname">
+									</div>
+									<div class="col-sm-3 form-group">
+										<label></label>
+										<input type="text" placeholder="Middle" class="form-control" formControlName="middlename">
+									</div>
+									<div class="col-sm-3 form-group">
+											<label></label>
+											<input type="text" placeholder="Last Name" class="form-control" formControlName="lastname">
+									</div>
+									<div class="col-sm-3 form-group">
+												<label>Gender</label>
+												<input type="text" placeholder="Gender" class="form-control" formControlName="gender">
+									</div>	 
+									<div class="col-sm-3 form-group">
+										<label>Date Of Birth</label>
+										<input type="date" placeholder="date of Birth" class="form-control" formControlName="dob">
+											
+									</div>
+									<div class="col-sm-3 form-group">
+											<label>Nationality</label>
+											<input type="text" placeholder="" class="form-control" formControlName="nation">
+									</div>
+									<div class="col-sm-3 form-group">
+											<label>SSN</label>
+											<input type="number" placeholder="" class="form-control" formControlName="ssn">
+									</div>	 
+									<div class="col-sm-3 form-group">
+											<label>Marital Status</label>
+											<input type="text" placeholder="" class="form-control" formControlName="marital">
+									</div>	
+								</div>
+								</div>
+						
+						</form>
+						</div>
+						</div>
+						</div>
+					<div class="container">
+					<div class="col-lg-12 well">
+					<div class="row">
+						<form  [formGroup]="formVar" (ngSubmit)="onSubmit()">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-9 form-group">
+										<label>Primary Contact Address in USA for NON US Citizen</label>
+										<textarea placeholder="Enter Address Here.." rows="3" class="form-control" formControlName="address"></textarea>
+									</div>
+								</div>
+								<div class="row">
+										<div class="col-sm-4 form-group">
+												<label></label>
+												<input type="text" placeholder="City/Town" class="form-control" formControlName="city">
+					
+										</div>
+										<div class="col-sm-4 form-group">
+												<label></label>
+												<input type="text" placeholder="State" class="form-control" formControlName="state">
+					
+										</div>
+										<div class="col-sm-4 form-group">
+												<label></label>
+												<input type="text" placeholder="Zip Code" class="form-control" formControlName="zipcode">
+					
+										</div>
+					
+								</div>
+								<div class="row">
+										<div class="col-sm-4 form-group">
+												<label></label>
+												<input type="text" placeholder="Land Mark(optional)" class="form-control" formControlName="landmark">
+											</div>
+											<div class="col-sm-4 form-group">
+													<label></label>
+													<input type="text" placeholder="Alternate Phone" class="form-control" formControlName="altphone">
+												</div>	
+					
+								</div>
+					
+					
+							
+								</div>
+						
+						</form>
+						</div>
+						</div>
+						</div>	
+					
+					
+						<div class="container">
+					<div class="col-lg-12 well">
+					<div class="row">
+						<form  [formGroup]="formVar" (ngSubmit)="onSubmit()">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-12 form-group">
+										<label>Contact Address in Home Country</label>
+										<textarea placeholder="Enter Address Here.." rows="5" col="60" class="form-control" formControlName="homecountryaddress"></textarea>
+									</div>
+								</div>
+								</div>
+						
+						</form>
+						</div>
+						</div>
+						</div>	
+					
+					
+					<div class="container">
+					<div class="col-lg-12 well">
+					<div class="row">
+						<form  [formGroup]="formVar" (ngSubmit)="onSubmit()">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-6 form-group">
+										<label>Mobile Number</label>
+										<input type="text" placeholder="" class="form-control" formControlName="mobile">
+									</div>
+									<div class="col-sm-6 form-group">
+											<label>Driving Licence or State Id</label>
+											<input type="file" placeholder="Driving Licence" class="" formControlName="license">
+										</div>
+								</div>
+								<div class="row">
+										<div class="col-sm-6 form-group">
+											<label>Land Line</label>
+											<input type="text" placeholder="" class="form-control" formControlName="landline">
+										</div>
+										<div class="col-sm-6 form-group">
+											<label>
+												Bank Stetement
+											</label>
+											<input type="file" placeholder="Bank Statement" class="" formControlName="bankstmt">
+										</div>
+					
+					
+								</div>
+								<div class="row">
+										<div class="col-sm-6 form-group">
+											<label>Email </label>
+											<input type="text" placeholder="" class="form-control" formControlName="email">
+										</div>
+								</div>		
+							</div>
+						</form>
+						</div>
+						</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Save</button>
+						&nbsp;&nbsp;&nbsp;
+						<a href="#edu" data-toggle="pill" (click)="addClass(id=2)"><button type="button" class="btn btn-primary">Next</button></a>
+					</form></div>
+	
+	<div id="edu" class="tab-pane fade" [ngClass]="{'in active': id === 2 }">
+			<h3 align="left" class="col-sm-offset-0" style="color:skyblue"> Education Information</h3>
+
+		<h5>Masters Details</h5>
+		<div class="container " >
+				<div class="col-lg-12 well">
+					<div class="row">
+					  <form>
+							<div class="col-sm-12">
+									<div class="row">
+										<div class="col-sm-12 form-group">
+											<label>Year or expected year of graduation and Month of graduation</label>
+											<input type="text" placeholder="" class="form-control">
+										</div>
+									</div>	
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Major of degree</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>University</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>
+										</div>		
+							</div>
+					</form>
+					</div>
+				</div>
+			</div>
+
+		
+			
+<div class="container">
+				<div class="col-lg-12 well">
+					<div class="row">
+					  <form>
+							<div class="col-sm-12">
+									<div class="col">
+										<div class="col-sm-9 form-group">
+											<label>University Address</label>
+											<textarea placeholder="Enter Address Here.." rows="2" class="form-control"></textarea>
+										</div>
+									</div>	 
+										<div class="row col-sm-3">
+												<div class="col-sm-9 form-group">
+													<label></label>
+													<input type="text" placeholder="GPA" class="form-control">
+												</div>	
+												<div class="col-sm-9 form-group">
+													<label>Start year&Month</label>
+													<input type="month" placeholder="Start year and Month" class="form-control">
+												</div>
+										</div>		
+										<div class="col-sm-12">
+												<div class="col-sm-6 form-group">
+													<label>Upload College Official Transcript</label>
+													<input type="file" placeholder="">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>Upload College degree</label>
+													<input type="file" placeholder="" >
+												</div>
+										</div>
+							</div>
+					</form>
+					</div>
+				</div>
+			</div>	
+			<h5>Bachelors Details</h5>
+
+<div class="container ">
+				<div class="col-lg-12 well">
+					<div class="row">
+					  <form>
+							<div class="col-sm-12">
+									<div class="row">
+										<div class="col-sm-12 form-group">
+											<label>Year or expected year of graduation and Month of graduation</label>
+											<input type="text" placeholder="" class="form-control">
+										</div>
+									</div>	
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Major of degree</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>University</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>
+										</div>		
+									
+							</div>
+					</form>
+					</div>
+				</div>
+			</div>	
+				
+			<div class="container">
+					<div class="col-lg-12 well">
+						<div class="row">
+						  <form>
+								<div class="col-sm-12">
+										<div class="col">
+											<div class="col-sm-9 form-group">
+												<label>University Address</label>
+												<textarea placeholder="Enter Address Here.." rows="2" class="form-control"></textarea>
+											</div>
+										</div>	 
+											<div class="row col-sm-3">
+													<div class="col-sm-9 form-group">
+														<label></label>
+														<input type="text" placeholder="GPA" class="form-control">
+													</div>	
+													<div class="col-sm-9 form-group">
+														<label>Start Year&Month</label>
+														<input type="month" placeholder="Start year and Month" class="form-control">
+													</div>
+											</div>		
+											<div class="col-sm-12">
+													<div class="col-sm-6 form-group">
+														<label>Upload College Official Transcript</label>
+														<input type="file" placeholder="">
+													</div>	
+													<div class="col-sm-6 form-group">
+														<label>Upload College degree</label>
+														<input type="file" placeholder="" >
+													</div>
+											</div>
+								</div>
+						</form>
+						</div>
+					</div>
+				</div>
+				<h5>    Intermediate Details</h5>
+
+			<div class="container">
+					<div class="col-lg-12 well">
+						<div class="row">
+						  <form>
+								<div class="col-sm-12">
+										<div class="row">
+											<div class="col-sm-12 form-group">
+												<label>College</label>
+												<input type="text" placeholder="" class="form-control">
+
+											</div>
+										</div>	
+											<div class="row">
+													<div class="col-sm-6 form-group">
+														<label>Start Year&Month</label>
+														<input type="month" placeholder="" class="form-control">
+													</div>	
+													<div class="col-sm-6 form-group">
+														<label>Start Year&Month</label>
+														<input type="month" placeholder="" class="form-control">
+													</div>
+											</div>		
+											
+								</div>
+						</form>
+						</div>
+					</div>
+				</div>	
+				<div class="container">
+						<div class="col-lg-12 well">
+							<div class="row">
+							  <form>
+									<div class="col-sm-12">
+											<div class="col">
+												<div class="col-sm-9 form-group">
+													<label>College Address</label>
+													<textarea placeholder="Enter Address Here.." rows="2" class="form-control"></textarea>
+												</div>
+											</div>	 
+												<div class="row col-sm-3">
+														<div class="col-sm-9 form-group">
+															<label></label>
+															<input type="text" placeholder="Pincode" class="form-control">
+														</div>	
+														<div class="col-sm-9 form-group">
+															<label></label>
+															<input type="text" placeholder="Land Mark" class="form-control">
+														</div>
+												</div>		
+												<div class="col-sm-12">
+														<div class="col-sm-6 form-group">
+															<label>Upload Marks List</label>
+															<input type="file" placeholder="">
+														</div>	
+														<div class="col-sm-6 form-group">
+															<label>Upload Intermediate Certificates</label>
+															<input type="file" placeholder="" >
+														</div>
+												</div>
+									</div>
+							</form>
+							</div>
+						</div>
+					</div>
+					<a href="#immi" align="right" data-toggle="pill" ><button type="button" class="btn btn-primary">Save</button></a>
+
+					<a href="#immi" align="right" data-toggle="pill" (click)="addClass(id=3)"><button type="button" class="btn btn-primary">Next</button></a>
+					<a href="#personal" data-toggle="pill" (click)="addClass(id=1)"><button type="button" class="btn btn-primary">Previous</button></a>
+
+
+		<!-- <a href="#immi" data-toggle="pill" (click)="addClass(id=3)"><button>next</button></a>
+		<a href="#personal" data-toggle="pill" (click)="addClass(id=1)"><button>back</button></a> -->
+	</div>
+	<div id="immi" class="tab-pane fade" [ngClass]="{'in active': id === 3 }">
+			<h3 align="left" class="col-sm-offset-0" style="color:skyblue"> Immigration Details</h3>		   
+			
+		<div class="container " >
+				<div class="col-lg-12 well">
+					<div class="row">
+					  <form>
+							<div class="col-sm-12">
+									<!-- <div class="col"> -->
+										<div class="row">
+										<div class="col-sm-6 form-group">
+											<label>Country of Birth</label>
+											<input type="text" placeholder="" class="form-control">
+										</div>
+										<div class="col-sm-6 form-group">
+												<label>Passport Expiry Date</label>
+												<input type="text" placeholder="" class="form-control">
+											</div>
+									</div>	
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Passport Issued Country</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>I-94 Number</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>
+										</div>
+									
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Current Status</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>Current Status validity</label>
+													<input type="text" placeholder="" class="form-control">
+												</div>
+										</div>	
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>OPT Start Date</label>
+													<input type="date" placeholder="" class="form-control">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>OPT End Date</label>
+													<input type="date" placeholder="" class="form-control">
+												</div>
+										</div>		
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>H1 Start Date</label>
+													<input type="date" placeholder="" class="form-control">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>H1b End Ddte</label>
+													<input type="date" placeholder="" class="form-control">
+												</div>
+										</div>	
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Upload Passport</label>
+													<input type="file" placeholder="" class="">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>Upload US visa</label>
+													<input type="file" placeholder="" class="">
+												</div>
+										</div>			
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Upload I-94 Document</label>
+													<input type="file" placeholder="" class="">
+												</div>	
+												<div class="col-sm-6 form-group">
+													<label>Upload All I-20's</label>
+													<input type="file" placeholder="" class="">
+												</div>
+										</div>		
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Upload Previous I797</label>
+													<input type="file" placeholder="" class="">
+												</div>	
+												
+										</div>			
+
+							</div>
+					</form>
+					</div>
+				</div>
+			</div>
+
+			<a href="#immi" align="right" data-toggle="pill" ><button type="button" class="btn btn-primary">Save</button></a>
+
+			<a href="#work" align="right" data-toggle="pill" (click)="addClass(id=4)"><button type="button" class="btn btn-primary">Next</button></a>
+			<a href="#edu" data-toggle="pill" (click)="addClass(id=2)"><button type="button" class="btn btn-primary">Previous</button></a>
+	</div>
+	<div id="work" class="tab-pane fade" [ngClass]="{'in active': id === 4 }">
+			<h3 align="left" class="col-sm-offset-0" style="color:skyblue"> Work Experience</h3>
+		   
+			
+			<div class="container " >
+					<div class="col-lg-12 well">
+						<div class="row">
+						  <form>
+								<div class="col-sm-12">
+										<!-- <div class="col"> -->
+											<div class="row">
+											<div class="col-sm-6 form-group">
+												<label>Total Years Of Experience</label>
+												<input type="number" placeholder="Years" class="form-control">
+												<input type="number" placeholder="Month" class="form-control">
+
+											</div>
+											<div class="col-sm-6 form-group">
+													<label>Previous work Experience</label>
+													<input type="number" placeholder="Years" class="form-control">
+													<input type="number" placeholder="Month" class="form-control">												</div>
+										</div>	
+										
+										
+												
+													
+<!-- 										
+											<div class="row">
+													<div class="col-sm-6 form-group">
+														<label>Upload I-94 Document</label>
+														<input type="file" placeholder="" class="">
+													</div>	
+													<div class="col-sm-6 form-group">
+														<label>Upload All I-20's</label>
+														<input type="file" placeholder="" class="">
+													</div>
+											</div>		
+											<div class="row">
+													<div class="col-sm-6 form-group">
+														<label>Upload Previous I797</label>
+														<input type="file" placeholder="" class="">
+													</div>	
+													
+											</div>			 -->
+	
+								</div>
+						</form>
+						</div>
+					</div>
+				</div>
+                    
+                     <h5>Company Details</h5>
+					<div class="container " >
+					<div class="col-lg-12 well">
+						<div class="row">
+						  <form>
+								<div class="col-sm-12">
+										<!-- <div class="col"> -->
+											<div class="row">
+											<div class="col-sm-6 form-group">
+												<label>Company name</label>
+												<input type="text" placeholder="" class="form-control">
+
+											</div>
+											<div class="col-sm-6 form-group">
+													<label>Start Year and Month</label>
+													<input type="month" placeholder="" class="">
+										</div>	
+										</div>
+										<div class="row">
+												<div class="col-sm-6 form-group">
+													<label>Company Location</label>
+													<input type="text" placeholder="" class="form-control">
+	
+												</div>
+												<div class="col-sm-6 form-group">
+														<label>Upload Experience Letter</label>
+														<input type="file" placeholder="" class="">
+											</div>	
+											</div>
+										
+										
+												
+													
+
+	
+								</div>
+						</form>
+						</div>
+					</div>
+				</div>
+
+
+		<a href="#immi" data-toggle="pill" (click)="addClass(id=3)"><button>back</button></a>
+	</div>
+	</div>
+</div>
+
+</body>
